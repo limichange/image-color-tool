@@ -9,8 +9,31 @@ import {
   Hct,
   SchemeTonalSpot,
   MaterialDynamicColors,
+  TonalPalette,
 } from '@material/material-color-utilities'
 import { useEffect, useState } from 'react'
+
+function toTone(palette: TonalPalette) {
+  return {
+    '0': hexFromArgb(palette.tone(0)),
+    '5': hexFromArgb(palette.tone(5)),
+    '10': hexFromArgb(palette.tone(10)),
+    '20': hexFromArgb(palette.tone(20)),
+    '25': hexFromArgb(palette.tone(25)),
+    '30': hexFromArgb(palette.tone(30)),
+    '35': hexFromArgb(palette.tone(35)),
+    '40': hexFromArgb(palette.tone(40)),
+    '50': hexFromArgb(palette.tone(50)),
+    '60': hexFromArgb(palette.tone(60)),
+    '70': hexFromArgb(palette.tone(70)),
+    '80': hexFromArgb(palette.tone(80)),
+    '90': hexFromArgb(palette.tone(90)),
+    '95': hexFromArgb(palette.tone(95)),
+    '98': hexFromArgb(palette.tone(98)),
+    '99': hexFromArgb(palette.tone(99)),
+    '100': hexFromArgb(palette.tone(100)),
+  }
+}
 
 const tokens = [
   'primaryPaletteKeyColor',
@@ -106,12 +129,12 @@ export default function Home() {
             dark: getDynamicColors(darkScheme),
           },
           palettes: {
-            primary: scheme.primaryPalette,
-            secondary: scheme.secondaryPalette,
-            tertiary: scheme.tertiaryPalette,
-            neutral: scheme.neutralPalette,
-            neutralVariant: scheme.neutralVariantPalette,
-            error: scheme.errorPalette,
+            primary: toTone(scheme.primaryPalette),
+            secondary: toTone(scheme.secondaryPalette),
+            tertiary: toTone(scheme.tertiaryPalette),
+            neutral: toTone(scheme.neutralPalette),
+            neutralVariant: toTone(scheme.neutralVariantPalette),
+            error: toTone(scheme.errorPalette),
           },
           // customColors: customColors.map((c) =>
           //   customColor(source, c, variant, contrastLevel)

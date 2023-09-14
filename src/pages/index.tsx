@@ -108,8 +108,7 @@ export default function Home() {
         const scheme = new SchemeTonalSpot(hct, false, 0)
         const darkScheme = new SchemeTonalSpot(hct, true, 0)
 
-        // @ts-ignore
-        const getDynamicColors = (scheme) =>
+        const getDynamicColors = (scheme: SchemeTonalSpot) =>
           Object.fromEntries(
             tokens.map((token) => {
               // @ts-ignore

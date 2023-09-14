@@ -11,26 +11,9 @@ import {
 } from '@material/material-color-utilities'
 import { useEffect, useState } from 'react'
 
-const primary = '#6750A4'
-const secondary = '#958DA5'
-const tertiary = '#B58392'
-const error = '#E46962'
-const neutral = '#938F96'
-const NeutralVariant = '#938F99'
-
-const external = '#F5C700'
-
-// Get the theme from a hex color
-const theme = themeFromSourceColor(argbFromHex('#f82506'), [
-  {
-    name: 'warn',
-    value: argbFromHex('#F5C700'),
-    blend: true,
-  },
-])
-
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [theme, setTheme] = useState<any>({})
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -44,12 +27,13 @@ export default function Home() {
     if (imageEle) {
       themeFromImage(imageEle, [
         {
-          name: 'custom-1',
+          name: 'warn',
           value: argbFromHex('#ff0000'),
           blend: true,
         },
       ]).then((theme) => {
         console.log(theme)
+        setTheme(theme)
       })
     }
   }, [selectedImage])
@@ -66,13 +50,15 @@ export default function Home() {
       <main>
         <input type='file' accept='image/*' onChange={handleImageChange} />
 
+        <br />
+
         {selectedImage && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             id='image'
             src={selectedImage}
             alt='Selected'
-            style={{ width: '200px' }}
+            style={{ width: 300 }}
           />
         )}
 

@@ -1,7 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 
 import {
   hexFromArgb,
@@ -136,26 +133,10 @@ export default function Home() {
             neutralVariant: toTone(scheme.neutralVariantPalette),
             error: toTone(scheme.errorPalette),
           },
-          // customColors: customColors.map((c) =>
-          //   customColor(source, c, variant, contrastLevel)
-          // ),
         }
 
         setTheme(theme)
       })
-
-      // themeFromImage(imageEle, [
-      //   {
-      //     name: 'warn',
-      //     value: argbFromHex('#ff0000'),
-      //     blend: true,
-      //   },
-      // ]).then((theme) => {
-      //   console.log(theme)
-      //   setTheme(theme)
-
-      //   console.log(applyTheme(theme, { target: document.body, dark: true }))
-      // })
     }
   }, [selectedImage])
 

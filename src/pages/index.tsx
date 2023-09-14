@@ -4,12 +4,70 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
 import {
-  argbFromHex,
-  themeFromSourceColor,
-  applyTheme,
-  themeFromImage,
+  hexFromArgb,
+  sourceColorFromImage,
+  Hct,
+  SchemeTonalSpot,
+  MaterialDynamicColors,
 } from '@material/material-color-utilities'
 import { useEffect, useState } from 'react'
+
+const tokens = [
+  'primaryPaletteKeyColor',
+  'secondaryPaletteKeyColor',
+  'tertiaryPaletteKeyColor',
+  'neutralPaletteKeyColor',
+  'neutralVariantPaletteKeyColor',
+  'background',
+  'onBackground',
+  'surface',
+  'surfaceDim',
+  'surfaceBright',
+  'surfaceContainerLowest',
+  'surfaceContainerLow',
+  'surfaceContainer',
+  'surfaceContainerHigh',
+  'surfaceContainerHighest',
+  'onSurface',
+  'surfaceVariant',
+  'onSurfaceVariant',
+  'inverseSurface',
+  'inverseOnSurface',
+  'outline',
+  'outlineVariant',
+  'shadow',
+  'scrim',
+  'surfaceTint',
+  'primary',
+  'onPrimary',
+  'primaryContainer',
+  'onPrimaryContainer',
+  'inversePrimary',
+  'secondary',
+  'onSecondary',
+  'secondaryContainer',
+  'onSecondaryContainer',
+  'tertiary',
+  'onTertiary',
+  'tertiaryContainer',
+  'onTertiaryContainer',
+  'error',
+  'onError',
+  'errorContainer',
+  'onErrorContainer',
+  'primaryFixed',
+  'primaryFixedDim',
+  'onPrimaryFixed',
+  'onPrimaryFixedVariant',
+  'secondaryFixed',
+  'secondaryFixedDim',
+  'onSecondaryFixed',
+  'onSecondaryFixedVariant',
+  'tertiaryFixed',
+  'tertiaryFixedDim',
+  'onTertiaryFixed',
+  'onTertiaryFixedVariant',
+]
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -25,16 +83,56 @@ export default function Home() {
     const imageEle = document.getElementById('image') as HTMLImageElement
 
     if (imageEle) {
-      themeFromImage(imageEle, [
-        {
-          name: 'warn',
-          value: argbFromHex('#ff0000'),
-          blend: true,
-        },
-      ]).then((theme) => {
-        console.log(theme)
+      sourceColorFromImage(imageEle).then((source) => {
+        const hct = Hct.fromInt(source)
+        const scheme = new SchemeTonalSpot(hct, false, 0)
+        const darkScheme = new SchemeTonalSpot(hct, true, 0)
+
+        // @ts-ignore
+        const getDynamicColors = (scheme) =>
+          Object.fromEntries(
+            tokens.map((token) => {
+              // @ts-ignore
+              const num = MaterialDynamicColors[token].getArgb(scheme)
+
+              return [token, hexFromArgb(num)]
+            })
+          )
+
+        const theme = {
+          source,
+          schemes: {
+            light: getDynamicColors(scheme),
+            dark: getDynamicColors(darkScheme),
+          },
+          palettes: {
+            primary: scheme.primaryPalette,
+            secondary: scheme.secondaryPalette,
+            tertiary: scheme.tertiaryPalette,
+            neutral: scheme.neutralPalette,
+            neutralVariant: scheme.neutralVariantPalette,
+            error: scheme.errorPalette,
+          },
+          // customColors: customColors.map((c) =>
+          //   customColor(source, c, variant, contrastLevel)
+          // ),
+        }
+
         setTheme(theme)
       })
+
+      // themeFromImage(imageEle, [
+      //   {
+      //     name: 'warn',
+      //     value: argbFromHex('#ff0000'),
+      //     blend: true,
+      //   },
+      // ]).then((theme) => {
+      //   console.log(theme)
+      //   setTheme(theme)
+
+      //   console.log(applyTheme(theme, { target: document.body, dark: true }))
+      // })
     }
   }, [selectedImage])
 

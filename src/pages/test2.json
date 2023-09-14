@@ -1,0 +1,157 @@
+{
+  "source": 4286349965,
+  "schemes": {
+    "light": {
+      "primary": 4279460005,
+      "onPrimary": 4294967295,
+      "primaryContainer": 4292076799,
+      "onPrimaryContainer": 4278197304,
+      "secondary": 4283719536,
+      "onSecondary": 4294967295,
+      "secondaryContainer": 4292338680,
+      "onSecondaryContainer": 4279311403,
+      "tertiary": 4285290103,
+      "onTertiary": 4294967295,
+      "tertiaryContainer": 4294302207,
+      "onTertiaryContainer": 4280685617,
+      "error": 4290386458,
+      "onError": 4294967295,
+      "errorContainer": 4294957782,
+      "onErrorContainer": 4282449922,
+      "background": 4294835455,
+      "onBackground": 4279901214,
+      "surface": 4294835455,
+      "onSurface": 4279901214,
+      "surfaceVariant": 4292862699,
+      "onSurfaceVariant": 4282599246,
+      "outline": 4285757311,
+      "outlineVariant": 4291020495,
+      "shadow": 4278190080,
+      "scrim": 4278190080,
+      "inverseSurface": 4281282611,
+      "inverseOnSurface": 4294045940,
+      "inversePrimary": 4288858623
+    },
+    "dark": {
+      "primary": 4288858623,
+      "onPrimary": 4278202715,
+      "primaryContainer": 4278208641,
+      "onPrimaryContainer": 4292076799,
+      "secondary": 4290496475,
+      "onSecondary": 4280693057,
+      "secondaryContainer": 4282140504,
+      "onSecondaryContainer": 4292338680,
+      "tertiary": 4292394467,
+      "onTertiary": 4282132807,
+      "tertiaryContainer": 4283645790,
+      "onTertiaryContainer": 4294302207,
+      "error": 4294948011,
+      "onError": 4285071365,
+      "errorContainer": 4287823882,
+      "onErrorContainer": 4294948011,
+      "background": 4279901214,
+      "onBackground": 4293124838,
+      "surface": 4279901214,
+      "onSurface": 4293124838,
+      "surfaceVariant": 4282599246,
+      "onSurfaceVariant": 4291020495,
+      "outline": 4287467929,
+      "outlineVariant": 4282599246,
+      "shadow": 4278190080,
+      "scrim": 4278190080,
+      "inverseSurface": 4293124838,
+      "inverseOnSurface": 4281282611,
+      "inversePrimary": 4279460005
+    }
+  },
+  "palettes": {
+    "primary": {
+      "hue": 256.42940289128995,
+      "chroma": 48,
+      "keyColor": {
+        "argb": 4281956799,
+        "internalHue": 256.7209135225401,
+        "internalChroma": 47.969576129843176,
+        "internalTone": 49.86539595068474
+      },
+      "cache": {}
+    },
+    "secondary": {
+      "hue": 256.42940289128995,
+      "chroma": 16,
+      "keyColor": {
+        "argb": 4285298826,
+        "internalHue": 255.62229146160144,
+        "internalChroma": 16.094699084106214,
+        "internalTone": 50.04465745534702
+      },
+      "cache": {}
+    },
+    "tertiary": {
+      "hue": 316.42940289128995,
+      "chroma": 24,
+      "keyColor": {
+        "argb": 4287000465,
+        "internalHue": 316.44206405613795,
+        "internalChroma": 23.852819624704136,
+        "internalTone": 50.075037132663894
+      },
+      "cache": {}
+    },
+    "neutral": {
+      "hue": 256.42940289128995,
+      "chroma": 4,
+      "keyColor": {
+        "argb": 4285953914,
+        "internalHue": 249.28531956620805,
+        "internalChroma": 3.8963675359717214,
+        "internalTone": 50.037832932313265
+      },
+      "cache": {}
+    },
+    "neutralVariant": {
+      "hue": 256.42940289128995,
+      "chroma": 8,
+      "keyColor": {
+        "argb": 4285757311,
+        "internalHue": 256.1359461084703,
+        "internalChroma": 8.06543050595843,
+        "internalTone": 49.94278878743414
+      },
+      "cache": {}
+    },
+    "error": {
+      "hue": 25,
+      "chroma": 84,
+      "keyColor": {
+        "argb": 4292753200,
+        "internalHue": 25.01013502609243,
+        "internalChroma": 84.04509263062816,
+        "internalTone": 50.06767986742766
+      },
+      "cache": {}
+    }
+  },
+  "customColors": [
+    {
+      "color": {
+        "name": "warn",
+        "value": 4294901760,
+        "blend": true
+      },
+      "value": 4294639703,
+      "light": {
+        "color": 4290641984,
+        "onColor": 4294967295,
+        "colorContainer": 4294957788,
+        "onColorContainer": 4282384400
+      },
+      "dark": {
+        "color": 4294947513,
+        "onColor": 4284940319,
+        "colorContainer": 4287692847,
+        "onColorContainer": 4294957788
+      }
+    }
+  ]
+}

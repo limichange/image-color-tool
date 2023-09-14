@@ -168,9 +168,10 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
+      <main style={{ padding: 18 }}>
         <input type='file' accept='image/*' onChange={handleImageChange} />
 
+        <br />
         <br />
 
         {selectedImage && (
